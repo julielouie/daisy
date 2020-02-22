@@ -8,6 +8,16 @@ A full-stack Node.js and React mobile application designed for helping busy pet 
 ### DB Designer
 - https://dbdesigner.page.link/J6oTJhkxLh9KTvpF7
 
+## Technologies Used
+- React.js
+- Webpack 4
+- Bootstrap 4
+- Node.js
+- PostgreSQL
+- HTML5
+- CSS3
+- AWS EC2
+
 ## Live Demo
 Link: Coming Soon!
 
@@ -28,3 +38,32 @@ Link: Coming Soon!
 
 ## Preview
 Coming Soon!
+
+## Development
+
+### System Requirements
+
+- NPM 6 or higher
+- Node.js 10 or higher
+- PostgreSQL 10 or higher
+
+### Getting Started
+
+1. Clone the repository.
+
+    ```shell
+    git clone https://github.com/juliehchung/daisy
+    cd daisy
+    ```
+
+2. Install all dependencies with NPM.
+
+    ```shell
+    npm install
+    ```
+
+3. Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
+
+    ```shell
+    npm run dev
+    ```
