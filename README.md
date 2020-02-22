@@ -1,17 +1,30 @@
-# full-stack-project
+# Daisy
 
-Starter files and guidance for building a full stack web application in JavaScript.
+A full-stack Node.js and React mobile application designed for helping busy pet owners keep track of the daily and long-term routine care of their pets.
 
-The guides cover the following topics:
+### Figma
+- https://www.figma.com/file/iogNnnCyLgRGgGilKGvX64/Untitled?node-id=0%3A1
 
-1. [Getting Started](guides/GETTING_STARTED.md)
-1. [Team Meetings](guides/TEAM_MEETINGS.md)
-1. [Full Stack Development Workflow](guides/FULL_STACK_WORKFLOW.md)
-1. [Deployment to EC2 on AWS](guides/DEPLOYMENT.md)
-1. [Presentations](guides/PRESENTING.md)
+### DB Designer
+- https://dbdesigner.page.link/J6oTJhkxLh9KTvpF7
 
-Project Managers (LearningFuze staff) and Developers (LearningFuze students) will be using these guides when delivering project features and conducting team meetings.
+## Live Demo
+Link: Coming Soon!
 
-Congratulations on making it this far! There is work left to be done, but these guides aim to start you off on solid footing and help you maintain good velocity throughout the project.
+## Features
+- User can sign up for an account
+- User can log in
+- User can view list of pets
+- User can add a pet
+- User can remove a pet
+- User can view pet details
+- User can add pet details
+- User can update/edit a pet detail
+- User can remove a pet detail
+- User can add a pet routine
+- User can create custom pet routines
+- User can update/edit a pet routine
+- User can remove a pet routine
 
-Good luck!
+## Preview
+Coming Soon!
