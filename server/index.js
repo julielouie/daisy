@@ -5,6 +5,8 @@ const db = require('./database');
 const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const sessionMiddleware = require('./session-middleware');
+// eslint-disable-next-line no-unused-vars
+const petRouter = require('./routes/pets');
 
 const app = express();
 
@@ -33,6 +35,8 @@ app.use((err, req, res, next) => {
     });
   }
 });
+
+// app.use('/api', petRouter);
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
