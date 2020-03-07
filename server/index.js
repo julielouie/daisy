@@ -7,6 +7,8 @@ const staticMiddleware = require('./static-middleware');
 const sessionMiddleware = require('./session-middleware');
 
 const petsRouter = require('./routes/pets');
+const petDetailsRouter = require('./routes/pet-details');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -37,6 +39,8 @@ app.use((err, req, res, next) => {
 });
 
 app.use('/api', petsRouter);
+app.use('./api', petDetailsRouter);
+app.use('./api', usersRouter);
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
