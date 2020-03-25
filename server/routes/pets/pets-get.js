@@ -3,10 +3,9 @@ const db = require('../../database');
 const petsGet = (req, res, next) => {
   const userId = parseInt(req.params.userId);
   const sql = `
-                SELECT *
+                SELECT name, age, breed, species
                   FROM pets
-                  JOIN "userId" ON "users"."userId" = "pets"."userId"
-                WHERE "userId" = $1
+                WHERE pets."userId" = $1
               `;
   const params = [userId];
   db.query(sql, params)
