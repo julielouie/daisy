@@ -39,8 +39,8 @@ app.use((err, req, res, next) => {
 });
 
 app.use('/api', petsRouter);
-app.use('./api', petDetailsRouter);
-app.use('./api', usersRouter);
+app.use('/api', petDetailsRouter);
+app.use('/api', usersRouter);
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
