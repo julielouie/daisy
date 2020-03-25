@@ -75,7 +75,7 @@ CREATE TABLE public.pets (
     birthday date,
     "adoptionDay" date,
     age integer NOT NULL,
-    breed character varying(64) NOT NULL,
+    breed character varying(64),
     species character varying(32) NOT NULL,
     coloring character varying(32) NOT NULL,
     allergies character varying(64),
@@ -144,11 +144,9 @@ ALTER SEQUENCE public."routines_routineId_seq" OWNED BY public.routines."routine
 
 CREATE TABLE public.users (
     "userId" integer NOT NULL,
-    "firstName" character varying(32) NOT NULL,
-    "lastName" character varying(32) NOT NULL,
     email character varying(64) NOT NULL,
     password character varying(64) NOT NULL,
-    image character varying(255) NOT NULL
+    "fullName" character varying(64) NOT NULL
 );
 
 
@@ -198,6 +196,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN "userId" SET DEFAULT nextval('public.
 --
 
 COPY public.pets ("petId", "userId", name, birthday, "adoptionDay", age, breed, species, coloring, allergies, diet) FROM stdin;
+6	1	Daisy	2009-10-31	\N	15	Chihuahua	dog	white and brown	\N	Nutro Lamb and Rice
+7	1	Pepper	2018-02-26	\N	2	Australian Shepherd	dog	Tri	\N	Purina Pro Plan Salmon and Rice
 \.
 
 
@@ -213,7 +213,8 @@ COPY public.routines ("routineId", "petId", "routineName", description, "dateTim
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.users ("userId", "firstName", "lastName", email, password, image) FROM stdin;
+COPY public.users ("userId", email, password, "fullName") FROM stdin;
+1	ju@ju.ju	daisy	Julie Chung
 \.
 
 
@@ -221,7 +222,7 @@ COPY public.users ("userId", "firstName", "lastName", email, password, image) FR
 -- Name: pets_petId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."pets_petId_seq"', 1, false);
+SELECT pg_catalog.setval('public."pets_petId_seq"', 7, true);
 
 
 --
@@ -235,7 +236,7 @@ SELECT pg_catalog.setval('public."routines_routineId_seq"', 1, false);
 -- Name: users_userId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."users_userId_seq"', 1, false);
+SELECT pg_catalog.setval('public."users_userId_seq"', 1, true);
 
 
 --

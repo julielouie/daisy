@@ -5,7 +5,7 @@ const petsGet = (req, res, next) => {
   const sql = `
                 SELECT name, age, breed, species
                   FROM pets
-                WHERE pets."userId" = $1
+                 WHERE "userId" = $1
               `;
   const params = [userId];
   db.query(sql, params)
