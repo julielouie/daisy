@@ -11,11 +11,9 @@ const petsGet = (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       if (result.rows.length === 0) {
-        res.status(200);
-        res.json([]);
+        res.status(200).json([]);
       } else {
-        res.status(200);
-        res.json(result.rows);
+        res.status(200).json(result.rows);
       }
     })
     .catch(err => next(err));
