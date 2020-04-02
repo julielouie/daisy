@@ -1,13 +1,15 @@
 const db = require('../../database');
 
 const petsUpdate = (req, res, next) => {
+  const petId = parseInt(req.params.petId);
   const userId = parseInt(req.params.userId);
   const sql = `
-                SELECT name, age, breed, species
-                  FROM pets
-                 WHERE "userId" = $1
+                UPDATE pets
+                   SET ("userId", name, birthday, "adoptionDay", age, breed, species, coloring, allergies, diet)
+                 WHERE "petId" = $1
+                   AND "userId" = $2
               `;
-  const params = [userId];
+  const params = [petId, userId];
   db.query(sql, params)
     .then(result => {
       if (result.rows.length === 0) {
