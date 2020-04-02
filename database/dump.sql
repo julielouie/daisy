@@ -77,7 +77,7 @@ CREATE TABLE public.pets (
     age integer NOT NULL,
     breed character varying(64),
     species character varying(32) NOT NULL,
-    coloring character varying(32) NOT NULL,
+    coloring character varying(32),
     allergies character varying(64),
     diet character varying(64)
 );
@@ -198,6 +198,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN "userId" SET DEFAULT nextval('public.
 COPY public.pets ("petId", "userId", name, birthday, "adoptionDay", age, breed, species, coloring, allergies, diet) FROM stdin;
 6	1	Daisy	2009-10-31	\N	15	Chihuahua	dog	white and brown	\N	Nutro Lamb and Rice
 7	1	Pepper	2018-02-26	\N	2	Australian Shepherd	dog	Tri	\N	Purina Pro Plan Salmon and Rice
+8	1	Doge	2012-12-12	\N	2	Meme	Doge	Tan	\N	Mems
+9	1	Doge	2012-12-12	\N	2	Meme	Doge	Tan	\N	Mems
 \.
 
 
@@ -222,7 +224,7 @@ COPY public.users ("userId", email, password, "fullName") FROM stdin;
 -- Name: pets_petId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."pets_petId_seq"', 7, true);
+SELECT pg_catalog.setval('public."pets_petId_seq"', 9, true);
 
 
 --
