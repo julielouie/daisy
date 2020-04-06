@@ -20,7 +20,7 @@ const petsUpdate = (req, res, next) => {
   const params = [name, birthday, adoptionDay, age, breed, species, coloring, allergies, diet, petId];
   db.query(sql, params)
     .then(result => {
-      if (!result.rows.length) {
+      if (!result.rows) {
         res.status(404).send(`Pet with ID ${req.body.petId} does not exist`);
       } else {
         res.status(200).json(result.rows);
