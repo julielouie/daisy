@@ -23,7 +23,7 @@ const petsUpdate = (req, res, next) => {
       if (!result.rows) {
         res.status(404).send(`Pet with ID ${req.body.petId} does not exist`);
       } else {
-        res.status(200).json(result.rows);
+        res.status(200).send({ petId: Number(req.body.petId) });
       }
     })
     .catch(err => next(err));
