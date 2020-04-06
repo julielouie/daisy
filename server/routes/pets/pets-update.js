@@ -31,6 +31,7 @@ const petsUpdate = (req, res, next) => {
       } else {
         db.query(sql, params)
           .then(result => res.status(200).json(result.rows));
+
       }
     })
     .catch(err => next(err));

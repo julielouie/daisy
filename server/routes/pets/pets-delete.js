@@ -11,15 +11,15 @@ const petsDelete = (req, res, next) => {
                 DELETE FROM pets
                  WHERE "petId" = $1
               `;
-  const petIdParams = [req.params.petId];
   const params = [petId];
-  db.query(petIdSql, petIdParams)
+  db.query(petIdSql, params)
     .then(petIdResult => {
       if (!petIdResult.rows.length) {
-        res.status(200).send(`Pet with ID ${req.params.petId} does not exist`);
+        res.status(200).send(`Pet with ID ${petId} does not exist`);
       } else {
         db.query(sql, params)
-          .then(result => res.status(200).send(`Pet with ID ${req.params.petId} has been deleted`));
+          .then(result => res.status(200).send(`Pet with ID ${petId} has been deleted`))
+          .catch(err => next(err));
       }
     })
     .catch(err => next(err));

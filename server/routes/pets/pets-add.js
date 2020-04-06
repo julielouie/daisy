@@ -32,7 +32,8 @@ const petsAdd = (req, res, next) => {
         res.status(404).send(`User with ID ${req.body.userId} does not exist`);
       } else {
         db.query(petSql, petParams)
-          .then(result => res.status(200).json(result.rows));
+          .then(result => res.status(200).json(result.rows))
+          .catch(err => next(err));
       }
     })
     .catch(err => next(err));
