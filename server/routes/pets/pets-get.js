@@ -10,7 +10,7 @@ const petsGet = (req, res, next) => {
   const params = [userId];
   db.query(sql, params)
     .then(result => {
-      if (result.rows.length === 0) {
+      if (!result.rows.length) {
         res.status(200).json([]);
       } else {
         res.status(200).json(result.rows);
