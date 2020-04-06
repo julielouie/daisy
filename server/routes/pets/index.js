@@ -9,6 +9,6 @@ const petsRouter = express.Router();
 petsRouter.get('/pets/:userId', petsGet);
 petsRouter.post('/pets', petsAdd);
 petsRouter.patch('/pets', petsUpdate);
-petsRouter.delete('/pets', petsDelete);
+petsRouter.delete('/pets/:petId', petsDelete);
 
 module.exports = petsRouter;
