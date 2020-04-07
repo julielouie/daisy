@@ -1,6 +1,6 @@
 const db = require('../../database');
 
-const routinesGet = (req, res, next) => {
+const routinesGetAll = (req, res, next) => {
   const userId = req.query.userId;
   const sql = `
                 SELECT name, age, breed, species
@@ -21,4 +21,4 @@ const routinesGet = (req, res, next) => {
     .catch(err => next(err));
 };
 
-module.exports = routinesGet;
+module.exports = routinesGetAll;
