@@ -5,7 +5,7 @@ const routinesDelete = (req, res, next) => {
   const routineIdSql = `
                         SELECT "routineId"
                           FROM routines
-                        WHERE "routineId" = $1;
+                         WHERE "routineId" = $1;
                        `;
   const sql = `
                DELETE FROM routines
