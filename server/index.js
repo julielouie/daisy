@@ -7,7 +7,7 @@ const staticMiddleware = require('./static-middleware');
 const sessionMiddleware = require('./session-middleware');
 
 const petsRouter = require('./routes/pets');
-const petRoutinesRouter = require('./routes/pet-routines');
+const routinesRouter = require('./routes/routines');
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(sessionMiddleware);
 app.use(express.json());
 
 app.use('/api', petsRouter);
-app.use('/api', petRoutinesRouter);
+app.use('/api', routinesRouter);
 app.use('/api', usersRouter);
 
 app.get('/api/health-check', (req, res, next) => {
