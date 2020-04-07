@@ -10,8 +10,8 @@ const routinesAdd = (req, res, next) => {
                      WHERE "petId" = $1;
                   `;
   const sql = `
-                INSERT INTO routines ("petId", routineName, description, dateTime, isCompleted, isRepeatable)
-                      VALUES ($1, $2, $3, $4, $5, $6);
+               INSERT INTO routines ("petId", routineName, description, dateTime, isCompleted, isRepeatable)
+                    VALUES ($1, $2, $3, $4, $5, $6);
               `;
   const petIdParams = [petId];
   const params = [petId, routineName, description, dateTime, isCompleted, isRepeatable];
