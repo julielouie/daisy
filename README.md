@@ -1,5 +1,6 @@
 # Daisy
 
+**CURRENTLY WORK IN PROGRESS:**
 A full-stack Node.js and React mobile application designed for helping busy pet owners keep track of the daily and long-term routine care of their pets.
 
 ### Figma
