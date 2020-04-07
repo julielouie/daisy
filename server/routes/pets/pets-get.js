@@ -1,13 +1,13 @@
 const db = require('../../database');
 
 const petsGet = (req, res, next) => {
-  const userId = parseInt(req.params.userId);
+  const petId = parseInt(req.params.petId);
   const sql = `
-                SELECT name, age, breed, species
+                SELECT name, birthday, "adoptionDay", age, breed, species, coloring, allergies, diet
                   FROM pets
-                 WHERE "userId" = $1
+                 WHERE "petId" = $1
               `;
-  const params = [userId];
+  const params = [petId];
   db.query(sql, params)
     .then(result => {
       if (!result.rows.length) {
@@ -17,7 +17,6 @@ const petsGet = (req, res, next) => {
       }
     })
     .catch(err => next(err));
-
 };
 
 module.exports = petsGet;
