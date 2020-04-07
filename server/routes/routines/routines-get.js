@@ -11,7 +11,7 @@ const routinesGet = (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       if (!result.rows.length) {
-        res.status(200).json([]);
+        res.status(200).send(`Routine with ID ${routineId} does not exist`);
       } else {
         res.status(200).json(result.rows);
       }

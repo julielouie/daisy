@@ -1,14 +1,13 @@
 const db = require('../../database');
 
 const routinesGet = (req, res, next) => {
-  const petId = parseInt(req.body.petId);
   const sql = `
                 SELECT "routineId", "routineName", description, "dateTime", "isCompleted"
-                  FROM routines
-                 WHERE "petId" = $1
+                  FROM routines AS r
+            INNER JOIN pets AS p
+                    ON r."petId" = p."petId"
               `;
-  const params = [petId];
-  db.query(sql, params)
+  db.query(sql)
     .then(result => {
       if (!result.rows.length) {
         res.status(200).json([]);
