@@ -2,7 +2,7 @@ const db = require('../../database');
 
 const routinesAdd = (req, res, next) => {
   const {
-    petId, routineName, description, isCompleted, isRepeatable
+    petId, routineName, description, dateTime, isCompleted, isRepeatable
   } = req.body;
   const petIdSql = `
                     SELECT "petId"
@@ -10,11 +10,11 @@ const routinesAdd = (req, res, next) => {
                      WHERE "petId" = $1;
                   `;
   const sql = `
-                INSERT INTO routines ("petId", routineName, description, isCompleted, isRepeatable)
-                      VALUES ($1, $2, $3, $4, $5);
+                INSERT INTO routines ("petId", routineName, description, dateTime, isCompleted, isRepeatable)
+                      VALUES ($1, $2, $3, $4, $5, $6);
               `;
   const petIdParams = [petId];
-  const params = [petId, routineName, description, isCompleted, isRepeatable];
+  const params = [petId, routineName, description, dateTime, isCompleted, isRepeatable];
   db.query(petIdSql, petIdParams)
     .then(petIdResult => {
       if (!petIdResult.rows.length) {
