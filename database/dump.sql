@@ -208,6 +208,7 @@ COPY public.pets ("petId", "userId", name, birthday, "adoptionDay", age, breed, 
 --
 
 COPY public.routines ("routineId", "petId", "routineName", description, "dateTime", "isCompleted", "isRepeatable") FROM stdin;
+1	11	Grooming	Needs nails trimmed	1999-01-08 12:05:06+00	f	f
 \.
 
 
@@ -231,7 +232,7 @@ SELECT pg_catalog.setval('public."pets_petId_seq"', 11, true);
 -- Name: routines_routineId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."routines_routineId_seq"', 1, false);
+SELECT pg_catalog.setval('public."routines_routineId_seq"', 1, true);
 
 
 --
