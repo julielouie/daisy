@@ -3,9 +3,9 @@ const db = require('../../database');
 const routinesGet = (req, res, next) => {
   const routineId = parseInt(req.params.routineId);
   const sql = `
-                SELECT "routineName", description, "dateTime", "isCompleted", "isRepeatable"
-                  FROM routines
-                 WHERE "routineId" = $1
+               SELECT "routineName", description, "dateTime", "isCompleted", "isRepeatable"
+                 FROM routines
+                WHERE "routineId" = $1
               `;
   const params = [routineId];
   db.query(sql, params)

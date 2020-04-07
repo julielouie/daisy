@@ -6,10 +6,10 @@ const petsDelete = (req, res, next) => {
                     SELECT "petId"
                       FROM pets
                      WHERE "petId" = $1;
-                  `;
+                   `;
   const sql = `
-                DELETE FROM pets
-                 WHERE "petId" = $1
+               DELETE FROM pets
+                     WHERE "petId" = $1
               `;
   const params = [petId];
   db.query(petIdSql, params)

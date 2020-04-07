@@ -209,8 +209,7 @@ COPY public.pets ("petId", "userId", name, birthday, "adoptionDay", age, breed, 
 
 COPY public.routines ("routineId", "petId", "routineName", description, "dateTime", "isCompleted", "isRepeatable") FROM stdin;
 1	11	Grooming	Needs nails trimmed	1999-01-08 12:05:06+00	f	f
-10	8	Grooming	Needs nails trimmed more	1999-01-08 12:05:06+00	f	f
-12	8	Grooming	Needs fur dyed	1999-01-08 12:05:06+00	f	f
+10	8	Makeover	Needs nails trimmed and painted	2020-04-07 04:05:06+00	f	f
 \.
 
 

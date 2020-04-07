@@ -7,20 +7,20 @@ const petsUpdate = (req, res, next) => {
   const petIdSql = `
                     SELECT "petId"
                       FROM pets
-                     WHERE "petId" = $1;
-                  `;
+                    WHERE "petId" = $1;
+                   `;
   const sql = `
-                UPDATE pets
-                   SET name = $1,
-                       birthday = $2,
-                       "adoptionDay" = $3,
-                       age = $4,
-                       breed = $5,
-                       species = $6,
-                       coloring = $7,
-                       allergies = $8,
-                       diet = $9
-                 WHERE "petId" = $10
+               UPDATE pets
+                  SET name = $1,
+                      birthday = $2,
+                      "adoptionDay" = $3,
+                      age = $4,
+                      breed = $5,
+                      species = $6,
+                      coloring = $7,
+                      allergies = $8,
+                      diet = $9
+                WHERE "petId" = $10
               `;
   const petIdParams = [petId];
   const params = [name, birthday, adoptionDay, age, breed, species, coloring, allergies, diet, petId];
