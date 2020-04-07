@@ -112,7 +112,7 @@ CREATE TABLE public.routines (
     "petId" integer NOT NULL,
     "routineName" character varying(32) NOT NULL,
     description text NOT NULL,
-    "dateTime" timestamp without time zone NOT NULL,
+    "dateTime" timestamp with time zone NOT NULL,
     "isCompleted" boolean NOT NULL,
     "isRepeatable" boolean NOT NULL
 );
@@ -199,7 +199,7 @@ COPY public.pets ("petId", "userId", name, birthday, "adoptionDay", age, breed, 
 6	1	Daisy	2009-10-31	\N	15	Chihuahua	dog	white and brown	\N	Nutro Lamb and Rice
 7	1	Pepper	2018-02-26	\N	2	Australian Shepherd	dog	Tri	\N	Purina Pro Plan Salmon and Rice
 8	1	Doge	2012-12-12	\N	2	Meme	Doge	Tan	\N	Mems
-9	1	Doge	2012-12-12	\N	2	Meme	Doge	Tan	\N	Mems
+11	1	Dogette	2001-01-01	\N	2	Memer	Dogette	Tanner	\N	Memes
 \.
 
 
@@ -224,7 +224,7 @@ COPY public.users ("userId", email, password, "fullName") FROM stdin;
 -- Name: pets_petId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."pets_petId_seq"', 9, true);
+SELECT pg_catalog.setval('public."pets_petId_seq"', 11, true);
 
 
 --
