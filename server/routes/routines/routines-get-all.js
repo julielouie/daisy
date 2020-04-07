@@ -1,13 +1,13 @@
 const db = require('../../database');
 
 const routinesGet = (req, res, next) => {
-  const routineId = parseInt(req.params.routineId);
+  const petId = parseInt(req.body.petId);
   const sql = `
-                SELECT "routineName", description, "dateTime", "isCompleted", "isRepeatable"
+                SELECT "routineId", "routineName", description, "dateTime", "isCompleted"
                   FROM routines
-                 WHERE "routineId" = $1
+                 WHERE "petId" = $1
               `;
-  const params = [routineId];
+  const params = [petId];
   db.query(sql, params)
     .then(result => {
       if (!result.rows.length) {
