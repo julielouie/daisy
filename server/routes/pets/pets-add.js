@@ -16,9 +16,9 @@ const petsAdd = (req, res, next) => {
     userId, name, birthday, adoptionDay, age, breed, species, coloring, allergies, diet
   } = req.body;
   const sql = `
-                  INSERT INTO pets ("userId", name, birthday, "adoptionDay", age, breed, species, coloring, allergies, diet)
-                       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
-                 `;
+               INSERT INTO pets ("userId", name, birthday, "adoptionDay", age, breed, species, coloring, allergies, diet)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
+              `;
   const params = [userId, name, birthday, adoptionDay, age, breed, species, coloring, allergies, diet];
   db.query(sql, params)
     .then(result => res.status(200).json(result.rows))
