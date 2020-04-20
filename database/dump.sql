@@ -214,7 +214,6 @@ COPY public.routines ("routineId", "petId", "routineName", description, "dateTim
 
 COPY public.users ("userId", email, password, "fullName") FROM stdin;
 5	ju@ju.ju	$2b$10$2iqW6caowK.qkWdkmt7jO.90GjWP17kwXe7HBvO1jrshXFDPyhHXq	Julie Chung
-7	juju@ju.ju	$2b$10$WaLv10hvv0bGgigJAGor7Omc1LmR7adcAZQintLSCnCxc1L9bA9f.	Julie Chung
 \.
 
 
