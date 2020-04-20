@@ -17,7 +17,7 @@ const usersLogin = (req, res, next) => {
   db.query(loginSql, params)
     .then(loginResult => {
       if (!loginResult.rows.length) {
-        res.status(200).send('Login failed, please check your credentials and try again.');
+        res.status(401).send('Login failed, please check your credentials and try again.');
       } else {
         bcrypt.compare(password, loginResult.rows[0].password, (err, comparedResult) => {
           console.error(err);
@@ -26,7 +26,7 @@ const usersLogin = (req, res, next) => {
               .then(result => res.status(200).json(result.rows[0].userId))
               .catch(err => next(err));
           } else {
-            res.status(401).json();
+            res.status(401).send('Login failed, please check your credentials and try again.');
           }
         });
       }
