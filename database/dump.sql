@@ -21,6 +21,7 @@ ALTER TABLE ONLY public.pets DROP CONSTRAINT "pets_userId_fkey";
 ALTER TABLE ONLY public.users DROP CONSTRAINT users_pkey;
 ALTER TABLE ONLY public.routines DROP CONSTRAINT routines_pkey;
 ALTER TABLE ONLY public.pets DROP CONSTRAINT pets_pkey;
+ALTER TABLE ONLY public.users DROP CONSTRAINT email_unique;
 ALTER TABLE public.users ALTER COLUMN "userId" DROP DEFAULT;
 ALTER TABLE public.routines ALTER COLUMN "routineId" DROP DEFAULT;
 ALTER TABLE public.pets ALTER COLUMN "petId" DROP DEFAULT;
@@ -196,10 +197,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN "userId" SET DEFAULT nextval('public.
 --
 
 COPY public.pets ("petId", "userId", name, birthday, "adoptionDay", age, breed, species, coloring, allergies, diet) FROM stdin;
-6	1	Daisy	2009-10-31	\N	15	Chihuahua	dog	white and brown	\N	Nutro Lamb and Rice
-7	1	Pepper	2018-02-26	\N	2	Australian Shepherd	dog	Tri	\N	Purina Pro Plan Salmon and Rice
-8	1	Doge	2012-12-12	\N	2	Meme	Doge	Tan	\N	Mems
-11	1	Dogette	2001-01-01	\N	2	Memer	Dogette	Tanner	\N	Memes
 \.
 
 
@@ -208,8 +205,6 @@ COPY public.pets ("petId", "userId", name, birthday, "adoptionDay", age, breed, 
 --
 
 COPY public.routines ("routineId", "petId", "routineName", description, "dateTime", "isCompleted", "isRepeatable") FROM stdin;
-1	11	Grooming	Needs nails trimmed	1999-01-08 12:05:06+00	f	f
-10	8	Makeover	Needs nails trimmed and painted	2020-04-07 04:05:06+00	f	f
 \.
 
 
@@ -218,7 +213,8 @@ COPY public.routines ("routineId", "petId", "routineName", description, "dateTim
 --
 
 COPY public.users ("userId", email, password, "fullName") FROM stdin;
-1	ju@ju.ju	daisy	Julie Chung
+5	ju@ju.ju	$2b$10$2iqW6caowK.qkWdkmt7jO.90GjWP17kwXe7HBvO1jrshXFDPyhHXq	Julie Chung
+7	juju@ju.ju	$2b$10$WaLv10hvv0bGgigJAGor7Omc1LmR7adcAZQintLSCnCxc1L9bA9f.	Julie Chung
 \.
 
 
@@ -240,7 +236,15 @@ SELECT pg_catalog.setval('public."routines_routineId_seq"', 12, true);
 -- Name: users_userId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."users_userId_seq"', 1, true);
+SELECT pg_catalog.setval('public."users_userId_seq"', 7, true);
+
+
+--
+-- Name: users email_unique; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT email_unique UNIQUE (email);
 
 
 --
