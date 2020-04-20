@@ -16,16 +16,20 @@ const usersLogin = (req, res, next) => {
   const params = [email];
   db.query(loginSql, params)
     .then(loginResult => {
-      bcrypt.compare(password, loginResult.rows[0].password, (err, comparedResult) => {
-        console.error(err);
-        if (comparedResult) {
-          db.query(userSql, params)
-            .then(result => res.status(200).json(result.rows[0].userId))
-            .catch(err => next(err));
-        } else {
-          res.status(401).json();
-        }
-      });
+      if (!loginResult.rows.length) {
+        res.status(200).send('Login failed, please check your credentials and try again.');
+      } else {
+        bcrypt.compare(password, loginResult.rows[0].password, (err, comparedResult) => {
+          console.error(err);
+          if (comparedResult) {
+            db.query(userSql, params)
+              .then(result => res.status(200).json(result.rows[0].userId))
+              .catch(err => next(err));
+          } else {
+            res.status(401).json();
+          }
+        });
+      }
     })
     .catch(err => next(err));
 };
