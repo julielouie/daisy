@@ -1,50 +1,38 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'; // Switch, Route
+// import { Switch, Route } from 'react-router-dom';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-      fetchingUser: true
-    };
-  }
+const App = () => {
+  const [user, setUser] = React.useState(null);
+  const [userFetched, setUserFetched] = React.useState(false);
 
-  componentDidMount() {
-    this.getUser();
-  }
-
-  getUser() {
+  const getUser = () => {
     fetch('/api/users')
       .then(results => results.json())
       .then(user => {
-        if (user) {
-          this.setState({ user, fetchingUser: false });
-        } else {
-          this.setState({ fetchingUser: false });
-        }
+        setUserFetched(true);
+        setUser(user);
       })
-      .catch(error => console.error('There was an error:', error.message));
-  }
+      .catch(error => console.error(error));
+  };
 
-  render() {
-    if (this.state.fetchingUser === true) {
-      return null;
-    }
-    return (
-      <>
-        <div>Hello!</div>
-        {/*
-        <Switch>
-          <Route exact path="/" render={props => <DefaultPage {...props}
-            setZip={this.setZip} />} />
-          <Route exact path="/activity-filter" render={props => <ActivityFilter {...props}
-            zip={this.state.zip}
-            setFilter={this.setFilter} />} />
-        </Switch> */}
-      </>
-    );
-  }
-}
+  React.useEffect(() => getUser(), []);
 
-export default withRouter(App);
+  if (userFetched) {
+    return null;
+  }
+  return (
+    <>
+      <div>{user}</div>
+      {/*
+      <Switch>
+        <Route exact path="/" render={props => <DefaultPage {...props}
+          setZip={this.setZip} />} />
+        <Route exact path="/activity-filter" render={props => <ActivityFilter {...props}
+          zip={this.state.zip}
+          setFilter={this.setFilter} />} />
+      </Switch> */}
+    </>
+  );
+};
+
+export default App;
