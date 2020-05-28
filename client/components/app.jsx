@@ -11,20 +11,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/health-check')
-      .then(res => res.json())
-      .then(data => this.setState({ message: data.message || data.error }))
-      .catch(err => this.setState({ message: err.message }))
-      .finally(() => this.setState({ isLoading: false }));
+    // fetch('/api/health-check')
+    //   .then(res => res.json())
+    //   .then(data => this.setState({ message: data.message || data.error }))
+    //   .catch(err => this.setState({ message: err.message }))
+    //   .finally(() => this.setState({ isLoading: false }));
   }
 
-  fetchUser() {
-    fetch('/api/users')
+  fetchUser(userId) {
+    fetch(`/api/users/${userId}`)
       .then(results => results.json())
       .then(user => {
         if (user) {
           this.setState({ user, fetchingUser: false });
-          this.getPoints(user.userId);
         } else {
           this.setState({ fetchingUser: false });
         }
@@ -41,6 +40,7 @@ class App extends React.Component {
     }
     return (
       <>
+        <div>Hello!</div>
         {/* <Header signOut={this.signOut} user={this.state.user} />
         <Switch>
           <Route exact path="/" render={props => <DefaultPage {...props}
