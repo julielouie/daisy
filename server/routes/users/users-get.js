@@ -1,7 +1,7 @@
 const db = require('../../database');
 
 const usersGet = (req, res, next) => {
-  const userId = 5; // parseInt(req.params.userId);
+  const userId = 5;
   const sql = `
                SELECT email, "fullName"
                  FROM users

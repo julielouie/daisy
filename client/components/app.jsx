@@ -16,10 +16,11 @@ class App extends React.Component {
     //   .then(data => this.setState({ message: data.message || data.error }))
     //   .catch(err => this.setState({ message: err.message }))
     //   .finally(() => this.setState({ isLoading: false }));
+    this.fetchUser();
   }
 
-  fetchUser(userId) {
-    fetch(`/api/users/${userId}`)
+  fetchUser() {
+    fetch('/api/users')
       .then(results => results.json())
       .then(user => {
         if (user) {
