@@ -18,21 +18,20 @@ const App = () => {
   React.useEffect(() => getUser(), []);
 
   if (userFetched) {
-    return null;
-  }
-  return (
-    <>
-      <div>{user}</div>
-      {/*
-      <Switch>
-        <Route exact path="/" render={props => <DefaultPage {...props}
-          setZip={this.setZip} />} />
-        <Route exact path="/activity-filter" render={props => <ActivityFilter {...props}
-          zip={this.state.zip}
-          setFilter={this.setFilter} />} />
-      </Switch> */}
-    </>
-  );
+    return (
+      <>
+        <div>{user}</div>
+        {/*
+        <Switch>
+          <Route exact path="/" render={props => <DefaultPage {...props}
+            setZip={this.setZip} />} />
+          <Route exact path="/activity-filter" render={props => <ActivityFilter {...props}
+            zip={this.state.zip}
+            setFilter={this.setFilter} />} />
+        </Switch> */}
+      </>
+    );
+  } else return null;
 };
 
 export default App;
