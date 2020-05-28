@@ -11,10 +11,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchUser();
+    this.getUser();
   }
 
-  fetchUser() {
+  getUser() {
     fetch('/api/users')
       .then(results => results.json())
       .then(user => {
