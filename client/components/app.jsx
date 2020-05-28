@@ -11,11 +11,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // fetch('/api/health-check')
-    //   .then(res => res.json())
-    //   .then(data => this.setState({ message: data.message || data.error }))
-    //   .catch(err => this.setState({ message: err.message }))
-    //   .finally(() => this.setState({ isLoading: false }));
     this.fetchUser();
   }
 
@@ -33,16 +28,13 @@ class App extends React.Component {
   }
 
   render() {
-    // return this.state.isLoading
-    //   ? <h1>Testing connections...</h1>
-    //   : <h1>{ this.state.message.toUpperCase() }</h1>;
     if (this.state.fetchingUser === true) {
       return null;
     }
     return (
       <>
         <div>Hello!</div>
-        {/* <Header signOut={this.signOut} user={this.state.user} />
+        {/*
         <Switch>
           <Route exact path="/" render={props => <DefaultPage {...props}
             setZip={this.setZip} />} />
