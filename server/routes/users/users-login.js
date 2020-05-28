@@ -9,7 +9,7 @@ const usersLogin = (req, res, next) => {
                      WHERE email = $1;
                    `;
   const userSql = `
-                   SELECT "userId"
+                   SELECT *
                      FROM users
                     WHERE email = $1;
                   `;
@@ -23,7 +23,15 @@ const usersLogin = (req, res, next) => {
           console.error(err);
           if (comparedResult) {
             db.query(userSql, params)
-              .then(result => res.status(200).json(result.rows[0].userId))
+              .then(result => {
+                const user = {
+                  email: result.rows[0].email,
+                  fullName: result.rows[0].fullName,
+                  userId: result.rows[0].userId
+                };
+                req.session.user = user;
+                res.status(200).json(user);
+              })
               .catch(err => next(err));
           } else {
             res.status(401).send('Login failed, please check your credentials and try again.');

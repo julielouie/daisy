@@ -1,25 +1,37 @@
 import React from 'react';
+// import { Switch, Route } from 'react-router-dom';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: null,
-      isLoading: true
-    };
-  }
+const App = () => {
+  const [user, setUser] = React.useState(null);
+  const [userFetched, setUserFetched] = React.useState(false);
 
-  componentDidMount() {
-    fetch('/api/health-check')
-      .then(res => res.json())
-      .then(data => this.setState({ message: data.message || data.error }))
-      .catch(err => this.setState({ message: err.message }))
-      .finally(() => this.setState({ isLoading: false }));
-  }
+  const getUser = () => {
+    fetch('/api/users')
+      .then(results => results.json())
+      .then(user => {
+        setUserFetched(true);
+        setUser(user);
+      })
+      .catch(error => console.error(error));
+  };
 
-  render() {
-    return this.state.isLoading
-      ? <h1>Testing connections...</h1>
-      : <h1>{ this.state.message.toUpperCase() }</h1>;
-  }
-}
+  React.useEffect(() => getUser(), []);
+
+  if (userFetched) {
+    return (
+      <>
+        <div>{user}</div>
+        {/*
+        <Switch>
+          <Route exact path="/" render={props => <DefaultPage {...props}
+            setZip={this.setZip} />} />
+          <Route exact path="/activity-filter" render={props => <ActivityFilter {...props}
+            zip={this.state.zip}
+            setFilter={this.setFilter} />} />
+        </Switch> */}
+      </>
+    );
+  } else return null;
+};
+
+export default App;
