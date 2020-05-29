@@ -8,6 +8,10 @@ const DefaultPage = props => {
         <h1>daisy</h1>
         <p>Happy tails make happy tales</p>
       </div>
+      <div>
+        <button>Log In</button>
+        <button>Sign Up</button>
+      </div>
     </div>
   );
 };
