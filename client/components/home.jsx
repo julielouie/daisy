@@ -1,14 +1,14 @@
 import React from 'react';
 
-const DefaultPage = props => {
+const Home = props => {
   return (
-    <div>
-      <div className="">
+    <div className="home container flex-column">
+      <div className="d-flex flex-column align-items-center">
         <img src="assets/images/daisy.png" alt="daisy flower"/>
         <h1>daisy</h1>
         <p>Happy tails make happy tales</p>
       </div>
-      <div>
+      <div className="d-flex flex-column align-items-center">
         <button>Log In</button>
         <button>Sign Up</button>
       </div>
@@ -16,4 +16,4 @@ const DefaultPage = props => {
   );
 };
 
-export default DefaultPage;
+export default Home;

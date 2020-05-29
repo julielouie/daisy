@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import DefaultPage from './default-page';
+import Home from './home';
 
 const App = () => {
   const [user, setUser] = React.useState(null);
@@ -22,7 +22,7 @@ const App = () => {
     return (
       <Switch>
         <Route exact path="/" render={props =>
-          <DefaultPage {...props}
+          <Home {...props}
             user={user} />} />
       </Switch>
     );
