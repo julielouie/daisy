@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = props => {
   return (
-    <div className="home container flex-column">
+    <div className="home col-12 flex-column">
       <div className="d-flex flex-column justify-content-center align-items-center h-50">
         <img src="assets/images/daisy.png" alt="daisy flower" className="logo"/>
         <h3>daisy</h3>
