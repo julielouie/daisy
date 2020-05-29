@@ -32,6 +32,10 @@ body {
   background: linear-gradient(157.15deg, #ECFCEA 11%, #A3DA9A 100%);
 }
 
+.trademark {
+  height: 60%;
+}
+
 .logo {
   max-width: 50%;
 }
