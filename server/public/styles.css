@@ -44,3 +44,10 @@ body {
   border-radius: 10px;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1), -4px -4px 12px rgba(255, 255, 255, 0.1);
 }
+
+.grad-text {
+  background: -webkit-linear-gradient(60.5deg, #CAF2C5 0%, #78BC70 31.25%, #477442 67.71%, #11410B 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

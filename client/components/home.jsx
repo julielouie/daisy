@@ -9,8 +9,12 @@ const Home = props => {
         <small>Happy tails make happy tales</small>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <button className="navi m-4">Log In</button>
-        <button className="navi m-4">Sign Up</button>
+        <button className="navi m-4">
+          <p className="grad-text m-auto">Log In</p>
+        </button>
+        <button className="navi m-4">
+          <p className="grad-text m-auto">Sign Up</p>
+        </button>
       </div>
     </div>
   );
