@@ -1,0 +1,57 @@
+@font-face {
+  font-family: Comfortaa;
+  src: url(assets/fonts/Comfortaa-Regular.ttf);
+}
+
+@font-face {
+  font-family: Comfortaa-Bold;
+  src: url(assets/fonts/Comfortaa-Bold.ttf);
+}
+
+@font-face {
+  font-family: Comfortaa-Light;
+  src: url(assets/fonts/Comfortaa-Light.ttf);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Comfortaa, 'Courier New', Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.home {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(157.15deg, #ECFCEA 11%, #A3DA9A 100%);
+}
+
+.trademark {
+  height: 60%;
+}
+
+.logo {
+  max-width: 50%;
+}
+
+.navi {
+  width: 50%;
+  height: 60px;
+  background-color: #ECFCEA;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1), -4px -4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.grad-text {
+  background: -webkit-linear-gradient(60.5deg, #CAF2C5 0%, #78BC70 31.25%, #477442 67.71%, #11410B 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

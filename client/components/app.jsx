@@ -1,5 +1,6 @@
 import React from 'react';
-// import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import Home from './home';
 
 const App = () => {
   const [user, setUser] = React.useState(null);
@@ -19,17 +20,11 @@ const App = () => {
 
   if (userFetched) {
     return (
-      <>
-        <div>{user}</div>
-        {/*
-        <Switch>
-          <Route exact path="/" render={props => <DefaultPage {...props}
-            setZip={this.setZip} />} />
-          <Route exact path="/activity-filter" render={props => <ActivityFilter {...props}
-            zip={this.state.zip}
-            setFilter={this.setFilter} />} />
-        </Switch> */}
-      </>
+      <Switch>
+        <Route exact path="/" render={props =>
+          <Home {...props}
+            user={user} />} />
+      </Switch>
     );
   } else return null;
 };
