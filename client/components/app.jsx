@@ -8,7 +8,7 @@ const App = () => {
 
   const getUser = () => {
     fetch('/api/users')
-      .then(response => (!response) ? response.json() : null)
+      .then(response => response.json())
       .then(user => {
         setUserFetched(true);
         setUser(user);
