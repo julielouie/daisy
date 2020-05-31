@@ -8,12 +8,14 @@ const App = () => {
 
   const getUser = () => {
     fetch('/api/users')
-      .then(response => response.json())
+      .then(response => {
+        if (!response) response.json();
+      })
       .then(user => {
         setUserFetched(true);
         setUser(user);
       })
-      .catch(error => console.error(error));
+      .catch(error => console.error(error.message));
   };
 
   React.useEffect(() => getUser(), []);
