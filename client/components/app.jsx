@@ -25,7 +25,7 @@ const App = () => {
           <Home {...props} user={user} />} />
       </Switch>
     );
-  } else return null;
+  } else return <div>Not Working</div>;
 };
 
 export default App;
