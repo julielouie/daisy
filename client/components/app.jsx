@@ -8,9 +8,7 @@ const App = () => {
 
   const getUser = () => {
     fetch('/api/users')
-      .then(response => {
-        if (!response) response.json();
-      })
+      .then(response => (!response) ? response.json() : null)
       .then(user => {
         setUserFetched(true);
         setUser(user);
@@ -24,8 +22,7 @@ const App = () => {
     return (
       <Switch>
         <Route exact path="/" render={props =>
-          <Home {...props}
-            user={user} />} />
+          <Home {...props} user={user} />} />
       </Switch>
     );
   } else return null;
