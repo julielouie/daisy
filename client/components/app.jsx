@@ -28,7 +28,7 @@ const App = () => {
             user={user} />} />
       </Switch>
     );
-  } else return <div>Not Working</div>;
+  } else return null;
 };
 
 export default App;
