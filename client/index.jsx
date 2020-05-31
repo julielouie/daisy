@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import ScrollToTop from 'react-router-scroll-top';
 import App from './components/app';
 
 ReactDOM.render(
-  <Router>
+  <BrowserRouter>
     <ScrollToTop />
     <App />
-  </Router>,
+  </BrowserRouter>,
   document.querySelector('#root')
 );
