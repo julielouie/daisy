@@ -8,7 +8,7 @@ const App = () => {
 
   const getUser = () => {
     fetch('/api/users')
-      .then(results => results.json())
+      .then(response => response.json())
       .then(user => {
         setUserFetched(true);
         setUser(user);
@@ -26,7 +26,7 @@ const App = () => {
             user={user} />} />
       </Switch>
     );
-  } else return null;
+  } else return <div>Not Working</div>;
 };
 
 export default App;
