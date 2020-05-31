@@ -8,9 +8,8 @@ const App = () => {
 
   const getUser = () => {
     fetch('/api/users')
-      .then(response => response.text())
-      .then(text => {
-        const user = text.length ? JSON.parse(text) : null;
+      .then(response => response.json())
+      .then(user => {
         setUserFetched(true);
         setUser(user);
       })
