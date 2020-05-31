@@ -8,12 +8,13 @@ const App = () => {
 
   const getUser = () => {
     fetch('/api/users')
-      .then(response => response.json())
-      .then(user => {
+      .then(response => response.text())
+      .then(text => {
+        const user = text.length ? JSON.parse(text) : null;
         setUserFetched(true);
         setUser(user);
       })
-      .catch(error => console.error(error.message));
+      .catch(error => console.error(error));
   };
 
   React.useEffect(() => getUser(), []);
@@ -25,7 +26,7 @@ const App = () => {
           <Home {...props} user={user} />} />
       </Switch>
     );
-  } else return <div>Not Working</div>;
+  } else return null;
 };
 
 export default App;
